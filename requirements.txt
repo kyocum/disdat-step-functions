@@ -2,4 +2,3 @@ boto3
 disdat
 stepfunctions
 pytest
-pytest-xdist

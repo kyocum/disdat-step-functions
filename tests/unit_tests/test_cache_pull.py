@@ -4,13 +4,10 @@ from disdat import api
 from typing import Any, Union
 import json
 import inspect
-import os
+from tests import config
 
 
-HOME = '/Users/zzhang2'
-os.environ["HOME"] = HOME
-
-S3_URL = 's3://step-function-cache-bucket'
+S3_URL = config.TEST_S3_BUCKET
 CONTEXT = 'test_cache_pull'
 
 api.context(CONTEXT)
@@ -63,15 +60,22 @@ test_data = [
 ]
 
 
+"""
+Test caching pull 
+"""
+
 @pytest.mark.parametrize('bd_name,data,params,force_rerun,should_use_cache', test_data)
 def test_cache_pull(bd_name, data, params, force_rerun, should_use_cache):
     func_name = inspect.currentframe().f_code.co_name
+    # generate some input data
     event = generate_input_event(full_params=data, cache_params=params, bundle_name=func_name, force_run=force_rerun)
+    # push mock data to S3 and remove local bundle
     push_data_to_s3(params=event[pp.CACHE_PARAM], data=data, bundle_name=func_name)
     api.rm(CONTEXT, bundle_name=bd_name, rm_all=True)
     bundle = api.search(CONTEXT, human_name=bd_name)
     assert len(bundle) == 0, 'local bundles not cleared!'
 
+    # pull data from S3 and check integrity
     output = Cache(event[pp.DSDT_ONLY_ARGS]).cache_pull(event)
     assert output[pp.USE_CACHE] == should_use_cache
     if should_use_cache:

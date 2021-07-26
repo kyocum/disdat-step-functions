@@ -2,7 +2,8 @@ import time
 
 from stepfunctions.steps import *
 from caching_util.caching_util import Caching
-from tests.integration_tests.utils import VersionChecker, Config
+from tests.integration_tests.utils import VersionChecker
+from tests import config
 from typing import Any
 
 
@@ -10,14 +11,14 @@ class DiffCacheParamWorkflow:
 
     @classmethod
     def get_workflow(cls, name: str, rerun: bool = False):
-        caching = Caching(caching_lambda_name=Config.LAMBDA_WORKER_NAME,
-                          s3_bucket_url=Config.S3_URL,
-                          context_name=Config.CONTEXT,
+        caching = Caching(caching_lambda_name=config.LAMBDA_WORKER_NAME,
+                          s3_bucket_url=config.S3_URL,
+                          context_name=config.CONTEXT,
                           verbose=True)
 
         user_pass_1 = Pass(state_id='User Task 1', input_path='$.useful')
         user_pass_1 = caching.cache_step(user_pass_1, bundle_name=name,
-                                         fore_rerun=rerun)
+                                         force_rerun=rerun)
         path = Chain([user_pass_1])
         return path
 

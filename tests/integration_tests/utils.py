@@ -1,12 +1,6 @@
 from disdat import api
+from tests import config
 
-
-class Config:
-    EXECUTION_ROLE = 'arn:aws:iam::531568561199:role/emr-chapi-lambda'
-    REGION = 'us-east-1'
-    CONTEXT = 'simple_dev_pipeline'
-    S3_URL = 's3://step-function-cache-bucket'
-    LAMBDA_WORKER_NAME = 'cache_lambda'
 
 
 class VersionChecker:
@@ -15,7 +9,7 @@ class VersionChecker:
         self.context = context
         self.monitor_bds = bundle_names
         api.context(context_name=context)
-        api.remote(local_context=context, remote_context=context, remote_url=Config.S3_URL)
+        api.remote(local_context=context, remote_context=context, remote_url=config.S3_URL)
         self.version = {}
         for bd in self.monitor_bds:
             self.version[bd] = self.capture_version(bd)
