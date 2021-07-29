@@ -129,3 +129,4 @@ dmypy.json
 .pyre/
 *.zip
 /cache_lambda/
+/generated_lambda/
