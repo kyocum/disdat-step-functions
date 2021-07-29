@@ -2,6 +2,7 @@ import json
 from disdat import api
 import logging
 from typing import Any
+from stepfunctions.workflow import Workflow
 
 
 LOG_LEVEL = logging.INFO + 1

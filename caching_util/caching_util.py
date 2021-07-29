@@ -278,9 +278,9 @@ class LambdaGenerator:
         if not os.path.isdir(from_folder) or force_rerun:
             os.makedirs(from_folder, exist_ok=True)
             # build image from dockerfile, see the dockerfile for more details
-            os.system('docker build -t dockerized_pip {}'.format(os.path.dirname(__file__)))
+            os.system('docker build -t docker_pip:latest {}'.format(os.path.dirname(__file__)))
             # exec container with mounted volume
-            os.system('docker run -v {}:/lib/dependency dockerized_pip'.format(from_folder))
+            os.system('docker run -v {}:/lib/dependency docker_pip:latest'.format(from_folder))
             # zip all dependencies into a zip file
             shutil.make_archive(to_file, format='zip', root_dir=os.path.join(root_dir, cls.DEPENDENCY))
         print('layer zip generated! find it in {}'.format(to_file + '.zip'))
