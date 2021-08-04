@@ -5,11 +5,11 @@ from typing import Any, Union
 import pytest
 from disdat import api
 
-from caching_util.cache_lambda import Cache, PathParam as pp
+from disdat_step_function.cache_lambda import Cache, PathParam as pp
 from tests import config
 
 S3_URL = config.TEST_S3_BUCKET
-CONTEXT = 'test_cache_push'
+CONTEXT = 'cache_push_testing'
 
 api.context(CONTEXT)
 api.remote(CONTEXT, remote_context=CONTEXT, remote_url=S3_URL)

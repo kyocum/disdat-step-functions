@@ -1,6 +1,6 @@
 TEST_S3_BUCKET = 's3://step-function-cache-bucket'
 EXECUTION_ROLE = 'arn:aws:iam::531568561199:role/emr-chapi-lambda'
 REGION = 'us-east-1'
-CONTEXT = 'simple_dev_pipeline'
+CONTEXT = 'integration_testing'
 S3_URL = 's3://step-function-cache-bucket'
 LAMBDA_WORKER_NAME = 'cache_lambda'

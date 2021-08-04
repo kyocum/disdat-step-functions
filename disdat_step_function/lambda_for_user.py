@@ -2,7 +2,7 @@ from disdat.common import DisdatConfig
 import os
 import logging
 # TODO FIX THIS IMPORT ONCE THIS PLUGIN IS MERGED INTO disdat
-from .cache_lambda import PathParam, Cache
+from cache_lambda import PathParam, Cache
 
 
 try:
@@ -28,7 +28,9 @@ def lambda_handler(event, context):
     cache = Cache(event[PathParam.DSDT_ONLY_ARGS])
     if len(event) == 2:
         # if the input event is a dict of length 2, it's meant for cache_push
-        return cache.cache_push(event)
+        # parent = cache.get_lineage()
+        parent = None
+        return cache.cache_push(event, parent)
     elif len(event) == 3:
         # if the input event is a dict of length 3, it's meant for cache_pull
         return cache.cache_pull(event)

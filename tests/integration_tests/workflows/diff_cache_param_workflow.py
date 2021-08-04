@@ -1,7 +1,7 @@
 import time
 
 from stepfunctions.steps import *
-from caching_util.caching_util import Caching
+from disdat_step_function.caching_wrapper import Caching
 from tests.integration_tests.utils import VersionChecker
 from tests import config
 from typing import Any

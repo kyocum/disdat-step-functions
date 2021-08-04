@@ -1,0 +1,917 @@
+{
+    "events": [
+        {
+            "timestamp": "2021-08-02T11:27:36.170000-04:00",
+            "type": "ExecutionStarted",
+            "id": 1,
+            "previousEventId": 0,
+            "executionStartedEventDetails": {
+                "input": "{\n    \"data_1\": [\n        1627917946.320738,\n        1627917946.320738\n    ],\n    \"data_2\": [\n        3,\n        4\n    ],\n    \"exec\": true,\n    \"irrelevant\": [\n        1,\n        2,\n        3\n    ]\n}",
+                "inputDetails": {
+                    "truncated": false
+                },
+                "roleArn": "arn:aws:iam::531568561199:role/emr-chapi-lambda"
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:27:36.198000-04:00",
+            "type": "ChoiceStateEntered",
+            "id": 2,
+            "previousEventId": 0,
+            "stateEnteredEventDetails": {
+                "name": "choice_1",
+                "input": "{\n    \"data_1\": [\n        1627917946.320738,\n        1627917946.320738\n    ],\n    \"data_2\": [\n        3,\n        4\n    ],\n    \"exec\": true,\n    \"irrelevant\": [\n        1,\n        2,\n        3\n    ]\n}",
+                "inputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:27:36.198000-04:00",
+            "type": "ChoiceStateExited",
+            "id": 3,
+            "previousEventId": 2,
+            "stateExitedEventDetails": {
+                "name": "choice_1",
+                "output": "{\n    \"data_1\": [\n        1627917946.320738,\n        1627917946.320738\n    ],\n    \"data_2\": [\n        3,\n        4\n    ],\n    \"exec\": true,\n    \"irrelevant\": [\n        1,\n        2,\n        3\n    ]\n}",
+                "outputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:27:36.298000-04:00",
+            "type": "TaskStateEntered",
+            "id": 4,
+            "previousEventId": 3,
+            "stateEnteredEventDetails": {
+                "name": "cache_pull_cw_bd_1",
+                "input": "{\n    \"data_1\": [\n        1627917946.320738,\n        1627917946.320738\n    ],\n    \"data_2\": [\n        3,\n        4\n    ],\n    \"exec\": true,\n    \"irrelevant\": [\n        1,\n        2,\n        3\n    ]\n}",
+                "inputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:27:36.298000-04:00",
+            "type": "TaskScheduled",
+            "id": 5,
+            "previousEventId": 4,
+            "taskScheduledEventDetails": {
+                "resourceType": "lambda",
+                "resource": "invoke",
+                "region": "us-east-1",
+                "parameters": "{\"FunctionName\":\"cache_lambda\",\"Payload\":{\"_dsdt_only_args\":{\"s3_bucket_url\":\"s3://step-function-cache-bucket\",\"context\":\"simple_dev_pipeline\",\"force_rerun\":false,\"verbose\":true,\"state_machine_name\":\"\",\"bundle_name\":\"cw_bd_1\"},\"_full_params\":{\"data_1\":[1.627917946320738E9,1.627917946320738E9],\"data_2\":[3,4],\"exec\":true,\"irrelevant\":[1,2,3]},\"_cache_params\":[1.627917946320738E9,1.627917946320738E9]}}"
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:27:36.335000-04:00",
+            "type": "TaskStarted",
+            "id": 6,
+            "previousEventId": 5,
+            "taskStartedEventDetails": {
+                "resourceType": "lambda",
+                "resource": "invoke"
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:16.991000-04:00",
+            "type": "TaskSucceeded",
+            "id": 7,
+            "previousEventId": 6,
+            "taskSucceededEventDetails": {
+                "resourceType": "lambda",
+                "resource": "invoke",
+                "output": "{\"ExecutedVersion\":\"$LATEST\",\"Payload\":{\"_full_params\":{\"data_1\":[1.627917946320738E9,1.627917946320738E9],\"data_2\":[3,4],\"exec\":true,\"irrelevant\":[1,2,3]},\"_cache_params\":[1.627917946320738E9,1.627917946320738E9],\"_data\":null,\"_use_cache\":false},\"SdkHttpMetadata\":{\"AllHttpHeaders\":{\"X-Amz-Executed-Version\":[\"$LATEST\"],\"x-amzn-Remapped-Content-Length\":[\"0\"],\"Connection\":[\"keep-alive\"],\"x-amzn-RequestId\":[\"f5962180-0c25-4541-8a92-063c20ad4c67\"],\"Content-Length\":[\"218\"],\"Date\":[\"Mon, 02 Aug 2021 15:28:16 GMT\"],\"X-Amzn-Trace-Id\":[\"root=1-61080ee8-429792f700196a20642d8fb9;sampled=0\"],\"Content-Type\":[\"application/json\"]},\"HttpHeaders\":{\"Connection\":\"keep-alive\",\"Content-Length\":\"218\",\"Content-Type\":\"application/json\",\"Date\":\"Mon, 02 Aug 2021 15:28:16 GMT\",\"X-Amz-Executed-Version\":\"$LATEST\",\"x-amzn-Remapped-Content-Length\":\"0\",\"x-amzn-RequestId\":\"f5962180-0c25-4541-8a92-063c20ad4c67\",\"X-Amzn-Trace-Id\":\"root=1-61080ee8-429792f700196a20642d8fb9;sampled=0\"},\"HttpStatusCode\":200},\"SdkResponseMetadata\":{\"RequestId\":\"f5962180-0c25-4541-8a92-063c20ad4c67\"},\"StatusCode\":200}",
+                "outputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:16.991000-04:00",
+            "type": "TaskStateExited",
+            "id": 8,
+            "previousEventId": 7,
+            "stateExitedEventDetails": {
+                "name": "cache_pull_cw_bd_1",
+                "output": "{\"_full_params\":{\"data_1\":[1627917946.320738,1627917946.320738],\"data_2\":[3,4],\"exec\":true,\"irrelevant\":[1,2,3]},\"_cache_params\":[1627917946.320738,1627917946.320738],\"_data\":null,\"_use_cache\":false}",
+                "outputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:16.999000-04:00",
+            "type": "ChoiceStateEntered",
+            "id": 9,
+            "previousEventId": 8,
+            "stateEnteredEventDetails": {
+                "name": "use_cache?_execution",
+                "input": "{\"_full_params\":{\"data_1\":[1627917946.320738,1627917946.320738],\"data_2\":[3,4],\"exec\":true,\"irrelevant\":[1,2,3]},\"_cache_params\":[1627917946.320738,1627917946.320738],\"_data\":null,\"_use_cache\":false}",
+                "inputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:16.999000-04:00",
+            "type": "ChoiceStateExited",
+            "id": 10,
+            "previousEventId": 9,
+            "stateExitedEventDetails": {
+                "name": "use_cache?_execution",
+                "output": "{\"_full_params\":{\"data_1\":[1627917946.320738,1627917946.320738],\"data_2\":[3,4],\"exec\":true,\"irrelevant\":[1,2,3]},\"_cache_params\":[1627917946.320738,1627917946.320738],\"_data\":null,\"_use_cache\":false}",
+                "outputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:17.109000-04:00",
+            "type": "ParallelStateEntered",
+            "id": 11,
+            "previousEventId": 10,
+            "stateEnteredEventDetails": {
+                "name": "execute_execution",
+                "input": "{\"_full_params\":{\"data_1\":[1627917946.320738,1627917946.320738],\"data_2\":[3,4],\"exec\":true,\"irrelevant\":[1,2,3]},\"_cache_params\":[1627917946.320738,1627917946.320738],\"_data\":null,\"_use_cache\":false}",
+                "inputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:17.109000-04:00",
+            "type": "ParallelStateStarted",
+            "id": 12,
+            "previousEventId": 11
+        },
+        {
+            "timestamp": "2021-08-02T11:28:17.211000-04:00",
+            "type": "PassStateEntered",
+            "id": 13,
+            "previousEventId": 12,
+            "stateEnteredEventDetails": {
+                "name": "param_pass_execution",
+                "input": "{\"_full_params\":{\"data_1\":[1627917946.320738,1627917946.320738],\"data_2\":[3,4],\"exec\":true,\"irrelevant\":[1,2,3]},\"_cache_params\":[1627917946.320738,1627917946.320738],\"_data\":null,\"_use_cache\":false}",
+                "inputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:17.211000-04:00",
+            "type": "PassStateExited",
+            "id": 14,
+            "previousEventId": 13,
+            "stateExitedEventDetails": {
+                "name": "param_pass_execution",
+                "output": "{\"_cache_params\":[1.627917946320738E9,1.627917946320738E9]}",
+                "outputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:17.220000-04:00",
+            "type": "PassStateEntered",
+            "id": 15,
+            "previousEventId": 12,
+            "stateEnteredEventDetails": {
+                "name": "param_resolve_execution",
+                "input": "{\"_full_params\":{\"data_1\":[1627917946.320738,1627917946.320738],\"data_2\":[3,4],\"exec\":true,\"irrelevant\":[1,2,3]},\"_cache_params\":[1627917946.320738,1627917946.320738],\"_data\":null,\"_use_cache\":false}",
+                "inputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:17.220000-04:00",
+            "type": "PassStateExited",
+            "id": 16,
+            "previousEventId": 15,
+            "stateExitedEventDetails": {
+                "name": "param_resolve_execution",
+                "output": "{\"data_1\":[1.627917946320738E9,1.627917946320738E9],\"data_2\":[3,4],\"exec\":true,\"irrelevant\":[1,2,3]}",
+                "outputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:17.321000-04:00",
+            "type": "PassStateEntered",
+            "id": 17,
+            "previousEventId": 16,
+            "stateEnteredEventDetails": {
+                "name": "execution",
+                "input": "{\"data_1\":[1.627917946320738E9,1.627917946320738E9],\"data_2\":[3,4],\"exec\":true,\"irrelevant\":[1,2,3]}",
+                "inputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:17.321000-04:00",
+            "type": "PassStateExited",
+            "id": 18,
+            "previousEventId": 17,
+            "stateExitedEventDetails": {
+                "name": "execution",
+                "output": "[1627917946.320738,1627917946.320738]",
+                "outputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:17.321000-04:00",
+            "type": "ParallelStateSucceeded",
+            "id": 19,
+            "previousEventId": 18
+        },
+        {
+            "timestamp": "2021-08-02T11:28:17.321000-04:00",
+            "type": "ParallelStateExited",
+            "id": 20,
+            "previousEventId": 18,
+            "stateExitedEventDetails": {
+                "name": "execute_execution",
+                "output": "[{\"_cache_params\":[1.627917946320738E9,1.627917946320738E9]},[1627917946.320738,1627917946.320738]]",
+                "outputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:17.328000-04:00",
+            "type": "TaskStateEntered",
+            "id": 21,
+            "previousEventId": 20,
+            "stateEnteredEventDetails": {
+                "name": "cache_push_cw_bd_1",
+                "input": "[{\"_cache_params\":[1.627917946320738E9,1.627917946320738E9]},[1627917946.320738,1627917946.320738]]",
+                "inputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:17.328000-04:00",
+            "type": "TaskScheduled",
+            "id": 22,
+            "previousEventId": 21,
+            "taskScheduledEventDetails": {
+                "resourceType": "lambda",
+                "resource": "invoke",
+                "region": "us-east-1",
+                "parameters": "{\"FunctionName\":\"cache_lambda\",\"Payload\":{\"_dsdt_only_args\":{\"s3_bucket_url\":\"s3://step-function-cache-bucket\",\"context\":\"simple_dev_pipeline\",\"force_rerun\":false,\"verbose\":true,\"state_machine_name\":\"\",\"bundle_name\":\"cw_bd_1\"},\"_full_params\":[{\"_cache_params\":[1.627917946320738E9,1.627917946320738E9]},[1.627917946320738E9,1.627917946320738E9]]}}"
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:17.335000-04:00",
+            "type": "TaskStarted",
+            "id": 23,
+            "previousEventId": 22,
+            "taskStartedEventDetails": {
+                "resourceType": "lambda",
+                "resource": "invoke"
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:18.222000-04:00",
+            "type": "TaskSucceeded",
+            "id": 24,
+            "previousEventId": 23,
+            "taskSucceededEventDetails": {
+                "resourceType": "lambda",
+                "resource": "invoke",
+                "output": "{\"ExecutedVersion\":\"$LATEST\",\"Payload\":[1.627917946320738E9,1.627917946320738E9],\"SdkHttpMetadata\":{\"AllHttpHeaders\":{\"X-Amz-Executed-Version\":[\"$LATEST\"],\"x-amzn-Remapped-Content-Length\":[\"0\"],\"Connection\":[\"keep-alive\"],\"x-amzn-RequestId\":[\"5119ca14-a158-4f68-9120-245707734b7a\"],\"Content-Length\":[\"38\"],\"Date\":[\"Mon, 02 Aug 2021 15:28:18 GMT\"],\"X-Amzn-Trace-Id\":[\"root=1-61080f11-0212d2f95bc1a99d0c3ff545;sampled=0\"],\"Content-Type\":[\"application/json\"]},\"HttpHeaders\":{\"Connection\":\"keep-alive\",\"Content-Length\":\"38\",\"Content-Type\":\"application/json\",\"Date\":\"Mon, 02 Aug 2021 15:28:18 GMT\",\"X-Amz-Executed-Version\":\"$LATEST\",\"x-amzn-Remapped-Content-Length\":\"0\",\"x-amzn-RequestId\":\"5119ca14-a158-4f68-9120-245707734b7a\",\"X-Amzn-Trace-Id\":\"root=1-61080f11-0212d2f95bc1a99d0c3ff545;sampled=0\"},\"HttpStatusCode\":200},\"SdkResponseMetadata\":{\"RequestId\":\"5119ca14-a158-4f68-9120-245707734b7a\"},\"StatusCode\":200}",
+                "outputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:18.222000-04:00",
+            "type": "TaskStateExited",
+            "id": 25,
+            "previousEventId": 24,
+            "stateExitedEventDetails": {
+                "name": "cache_push_cw_bd_1",
+                "output": "[1627917946.320738,1627917946.320738]",
+                "outputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:18.229000-04:00",
+            "type": "PassStateEntered",
+            "id": 26,
+            "previousEventId": 25,
+            "stateEnteredEventDetails": {
+                "name": "intermediate",
+                "input": "[1627917946.320738,1627917946.320738]",
+                "inputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:18.229000-04:00",
+            "type": "PassStateExited",
+            "id": 27,
+            "previousEventId": 26,
+            "stateExitedEventDetails": {
+                "name": "intermediate",
+                "output": "[1627917946.320738,1627917946.320738]",
+                "outputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:18.329000-04:00",
+            "type": "ParallelStateEntered",
+            "id": 28,
+            "previousEventId": 27,
+            "stateEnteredEventDetails": {
+                "name": "parallel_1",
+                "input": "[1627917946.320738,1627917946.320738]",
+                "inputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:18.329000-04:00",
+            "type": "ParallelStateStarted",
+            "id": 29,
+            "previousEventId": 28
+        },
+        {
+            "timestamp": "2021-08-02T11:28:18.431000-04:00",
+            "type": "TaskStateEntered",
+            "id": 30,
+            "previousEventId": 29,
+            "stateEnteredEventDetails": {
+                "name": "cache_pull_cw_bd_2",
+                "input": "[1627917946.320738,1627917946.320738]",
+                "inputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:18.431000-04:00",
+            "type": "TaskScheduled",
+            "id": 31,
+            "previousEventId": 30,
+            "taskScheduledEventDetails": {
+                "resourceType": "lambda",
+                "resource": "invoke",
+                "region": "us-east-1",
+                "parameters": "{\"FunctionName\":\"cache_lambda\",\"Payload\":{\"_dsdt_only_args\":{\"s3_bucket_url\":\"s3://step-function-cache-bucket\",\"context\":\"simple_dev_pipeline\",\"force_rerun\":false,\"verbose\":true,\"state_machine_name\":\"\",\"bundle_name\":\"cw_bd_2\"},\"_full_params\":[1.627917946320738E9,1.627917946320738E9],\"_cache_params\":1.627917946320738E9}}"
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:18.437000-04:00",
+            "type": "TaskStateEntered",
+            "id": 32,
+            "previousEventId": 29,
+            "stateEnteredEventDetails": {
+                "name": "cache_pull_cw_bd_3",
+                "input": "[1627917946.320738,1627917946.320738]",
+                "inputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:18.437000-04:00",
+            "type": "TaskScheduled",
+            "id": 33,
+            "previousEventId": 32,
+            "taskScheduledEventDetails": {
+                "resourceType": "lambda",
+                "resource": "invoke",
+                "region": "us-east-1",
+                "parameters": "{\"FunctionName\":\"cache_lambda\",\"Payload\":{\"_dsdt_only_args\":{\"s3_bucket_url\":\"s3://step-function-cache-bucket\",\"context\":\"simple_dev_pipeline\",\"force_rerun\":false,\"verbose\":true,\"state_machine_name\":\"\",\"bundle_name\":\"cw_bd_3\"},\"_full_params\":[1.627917946320738E9,1.627917946320738E9],\"_cache_params\":1.627917946320738E9}}"
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:18.444000-04:00",
+            "type": "TaskStarted",
+            "id": 34,
+            "previousEventId": 31,
+            "taskStartedEventDetails": {
+                "resourceType": "lambda",
+                "resource": "invoke"
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:18.450000-04:00",
+            "type": "TaskStarted",
+            "id": 35,
+            "previousEventId": 33,
+            "taskStartedEventDetails": {
+                "resourceType": "lambda",
+                "resource": "invoke"
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:57.426000-04:00",
+            "type": "TaskSucceeded",
+            "id": 36,
+            "previousEventId": 35,
+            "taskSucceededEventDetails": {
+                "resourceType": "lambda",
+                "resource": "invoke",
+                "output": "{\"ExecutedVersion\":\"$LATEST\",\"Payload\":{\"_full_params\":[1.627917946320738E9,1.627917946320738E9],\"_cache_params\":1.627917946320738E9,\"_data\":null,\"_use_cache\":false},\"SdkHttpMetadata\":{\"AllHttpHeaders\":{\"X-Amz-Executed-Version\":[\"$LATEST\"],\"x-amzn-Remapped-Content-Length\":[\"0\"],\"Connection\":[\"keep-alive\"],\"x-amzn-RequestId\":[\"2688d02e-fec7-4c82-b01d-733b21a31cf3\"],\"Content-Length\":[\"128\"],\"Date\":[\"Mon, 02 Aug 2021 15:28:57 GMT\"],\"X-Amzn-Trace-Id\":[\"root=1-61080f12-3155f5a44c3c6d384a7d6eb1;sampled=0\"],\"Content-Type\":[\"application/json\"]},\"HttpHeaders\":{\"Connection\":\"keep-alive\",\"Content-Length\":\"128\",\"Content-Type\":\"application/json\",\"Date\":\"Mon, 02 Aug 2021 15:28:57 GMT\",\"X-Amz-Executed-Version\":\"$LATEST\",\"x-amzn-Remapped-Content-Length\":\"0\",\"x-amzn-RequestId\":\"2688d02e-fec7-4c82-b01d-733b21a31cf3\",\"X-Amzn-Trace-Id\":\"root=1-61080f12-3155f5a44c3c6d384a7d6eb1;sampled=0\"},\"HttpStatusCode\":200},\"SdkResponseMetadata\":{\"RequestId\":\"2688d02e-fec7-4c82-b01d-733b21a31cf3\"},\"StatusCode\":200}",
+                "outputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:57.426000-04:00",
+            "type": "TaskStateExited",
+            "id": 37,
+            "previousEventId": 36,
+            "stateExitedEventDetails": {
+                "name": "cache_pull_cw_bd_3",
+                "output": "{\"_full_params\":[1627917946.320738,1627917946.320738],\"_cache_params\":1627917946.320738,\"_data\":null,\"_use_cache\":false}",
+                "outputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:57.435000-04:00",
+            "type": "ChoiceStateEntered",
+            "id": 38,
+            "previousEventId": 37,
+            "stateEnteredEventDetails": {
+                "name": "use_cache?_parallel_branch_2",
+                "input": "{\"_full_params\":[1627917946.320738,1627917946.320738],\"_cache_params\":1627917946.320738,\"_data\":null,\"_use_cache\":false}",
+                "inputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:57.435000-04:00",
+            "type": "ChoiceStateExited",
+            "id": 39,
+            "previousEventId": 38,
+            "stateExitedEventDetails": {
+                "name": "use_cache?_parallel_branch_2",
+                "output": "{\"_full_params\":[1627917946.320738,1627917946.320738],\"_cache_params\":1627917946.320738,\"_data\":null,\"_use_cache\":false}",
+                "outputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:57.537000-04:00",
+            "type": "ParallelStateEntered",
+            "id": 40,
+            "previousEventId": 39,
+            "stateEnteredEventDetails": {
+                "name": "execute_parallel_branch_2",
+                "input": "{\"_full_params\":[1627917946.320738,1627917946.320738],\"_cache_params\":1627917946.320738,\"_data\":null,\"_use_cache\":false}",
+                "inputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:57.537000-04:00",
+            "type": "ParallelStateStarted",
+            "id": 41,
+            "previousEventId": 40
+        },
+        {
+            "timestamp": "2021-08-02T11:28:57.640000-04:00",
+            "type": "PassStateEntered",
+            "id": 42,
+            "previousEventId": 41,
+            "stateEnteredEventDetails": {
+                "name": "param_pass_parallel_branch_2",
+                "input": "{\"_full_params\":[1627917946.320738,1627917946.320738],\"_cache_params\":1627917946.320738,\"_data\":null,\"_use_cache\":false}",
+                "inputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:57.640000-04:00",
+            "type": "PassStateExited",
+            "id": 43,
+            "previousEventId": 42,
+            "stateExitedEventDetails": {
+                "name": "param_pass_parallel_branch_2",
+                "output": "{\"_cache_params\":1.627917946320738E9}",
+                "outputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:57.647000-04:00",
+            "type": "PassStateEntered",
+            "id": 44,
+            "previousEventId": 41,
+            "stateEnteredEventDetails": {
+                "name": "param_resolve_parallel_branch_2",
+                "input": "{\"_full_params\":[1627917946.320738,1627917946.320738],\"_cache_params\":1627917946.320738,\"_data\":null,\"_use_cache\":false}",
+                "inputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:57.647000-04:00",
+            "type": "PassStateExited",
+            "id": 45,
+            "previousEventId": 44,
+            "stateExitedEventDetails": {
+                "name": "param_resolve_parallel_branch_2",
+                "output": "[1.627917946320738E9,1.627917946320738E9]",
+                "outputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:57.750000-04:00",
+            "type": "PassStateEntered",
+            "id": 46,
+            "previousEventId": 45,
+            "stateEnteredEventDetails": {
+                "name": "parallel_branch_2",
+                "input": "[1.627917946320738E9,1.627917946320738E9]",
+                "inputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:57.750000-04:00",
+            "type": "PassStateExited",
+            "id": 47,
+            "previousEventId": 46,
+            "stateExitedEventDetails": {
+                "name": "parallel_branch_2",
+                "output": "1627917946.320738",
+                "outputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:57.750000-04:00",
+            "type": "ParallelStateSucceeded",
+            "id": 48,
+            "previousEventId": 47
+        },
+        {
+            "timestamp": "2021-08-02T11:28:57.750000-04:00",
+            "type": "ParallelStateExited",
+            "id": 49,
+            "previousEventId": 47,
+            "stateExitedEventDetails": {
+                "name": "execute_parallel_branch_2",
+                "output": "[{\"_cache_params\":1.627917946320738E9},1627917946.320738]",
+                "outputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:57.758000-04:00",
+            "type": "TaskStateEntered",
+            "id": 50,
+            "previousEventId": 49,
+            "stateEnteredEventDetails": {
+                "name": "cache_push_cw_bd_3",
+                "input": "[{\"_cache_params\":1.627917946320738E9},1627917946.320738]",
+                "inputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:57.758000-04:00",
+            "type": "TaskScheduled",
+            "id": 51,
+            "previousEventId": 50,
+            "taskScheduledEventDetails": {
+                "resourceType": "lambda",
+                "resource": "invoke",
+                "region": "us-east-1",
+                "parameters": "{\"FunctionName\":\"cache_lambda\",\"Payload\":{\"_dsdt_only_args\":{\"s3_bucket_url\":\"s3://step-function-cache-bucket\",\"context\":\"simple_dev_pipeline\",\"force_rerun\":false,\"verbose\":true,\"state_machine_name\":\"\",\"bundle_name\":\"cw_bd_3\"},\"_full_params\":[{\"_cache_params\":1.627917946320738E9},1.627917946320738E9]}}"
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:57.765000-04:00",
+            "type": "TaskStarted",
+            "id": 52,
+            "previousEventId": 51,
+            "taskStartedEventDetails": {
+                "resourceType": "lambda",
+                "resource": "invoke"
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:58.213000-04:00",
+            "type": "TaskSucceeded",
+            "id": 53,
+            "previousEventId": 34,
+            "taskSucceededEventDetails": {
+                "resourceType": "lambda",
+                "resource": "invoke",
+                "output": "{\"ExecutedVersion\":\"$LATEST\",\"Payload\":{\"_full_params\":[1.627917946320738E9,1.627917946320738E9],\"_cache_params\":1.627917946320738E9,\"_data\":null,\"_use_cache\":false},\"SdkHttpMetadata\":{\"AllHttpHeaders\":{\"X-Amz-Executed-Version\":[\"$LATEST\"],\"x-amzn-Remapped-Content-Length\":[\"0\"],\"Connection\":[\"keep-alive\"],\"x-amzn-RequestId\":[\"3d69f5c0-5b43-4efd-ab87-49d2a55b8e6f\"],\"Content-Length\":[\"128\"],\"Date\":[\"Mon, 02 Aug 2021 15:28:58 GMT\"],\"X-Amzn-Trace-Id\":[\"root=1-61080f12-216623c51b00998234781856;sampled=0\"],\"Content-Type\":[\"application/json\"]},\"HttpHeaders\":{\"Connection\":\"keep-alive\",\"Content-Length\":\"128\",\"Content-Type\":\"application/json\",\"Date\":\"Mon, 02 Aug 2021 15:28:58 GMT\",\"X-Amz-Executed-Version\":\"$LATEST\",\"x-amzn-Remapped-Content-Length\":\"0\",\"x-amzn-RequestId\":\"3d69f5c0-5b43-4efd-ab87-49d2a55b8e6f\",\"X-Amzn-Trace-Id\":\"root=1-61080f12-216623c51b00998234781856;sampled=0\"},\"HttpStatusCode\":200},\"SdkResponseMetadata\":{\"RequestId\":\"3d69f5c0-5b43-4efd-ab87-49d2a55b8e6f\"},\"StatusCode\":200}",
+                "outputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:58.213000-04:00",
+            "type": "TaskStateExited",
+            "id": 54,
+            "previousEventId": 53,
+            "stateExitedEventDetails": {
+                "name": "cache_pull_cw_bd_2",
+                "output": "{\"_full_params\":[1627917946.320738,1627917946.320738],\"_cache_params\":1627917946.320738,\"_data\":null,\"_use_cache\":false}",
+                "outputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:58.220000-04:00",
+            "type": "ChoiceStateEntered",
+            "id": 55,
+            "previousEventId": 54,
+            "stateEnteredEventDetails": {
+                "name": "use_cache?_parallel_branch_1",
+                "input": "{\"_full_params\":[1627917946.320738,1627917946.320738],\"_cache_params\":1627917946.320738,\"_data\":null,\"_use_cache\":false}",
+                "inputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:58.220000-04:00",
+            "type": "ChoiceStateExited",
+            "id": 56,
+            "previousEventId": 55,
+            "stateExitedEventDetails": {
+                "name": "use_cache?_parallel_branch_1",
+                "output": "{\"_full_params\":[1627917946.320738,1627917946.320738],\"_cache_params\":1627917946.320738,\"_data\":null,\"_use_cache\":false}",
+                "outputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:58.323000-04:00",
+            "type": "ParallelStateEntered",
+            "id": 57,
+            "previousEventId": 56,
+            "stateEnteredEventDetails": {
+                "name": "execute_parallel_branch_1",
+                "input": "{\"_full_params\":[1627917946.320738,1627917946.320738],\"_cache_params\":1627917946.320738,\"_data\":null,\"_use_cache\":false}",
+                "inputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:58.323000-04:00",
+            "type": "ParallelStateStarted",
+            "id": 58,
+            "previousEventId": 57
+        },
+        {
+            "timestamp": "2021-08-02T11:28:58.426000-04:00",
+            "type": "PassStateEntered",
+            "id": 59,
+            "previousEventId": 58,
+            "stateEnteredEventDetails": {
+                "name": "param_pass_parallel_branch_1",
+                "input": "{\"_full_params\":[1627917946.320738,1627917946.320738],\"_cache_params\":1627917946.320738,\"_data\":null,\"_use_cache\":false}",
+                "inputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:58.426000-04:00",
+            "type": "PassStateExited",
+            "id": 60,
+            "previousEventId": 59,
+            "stateExitedEventDetails": {
+                "name": "param_pass_parallel_branch_1",
+                "output": "{\"_cache_params\":1.627917946320738E9}",
+                "outputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:58.433000-04:00",
+            "type": "PassStateEntered",
+            "id": 61,
+            "previousEventId": 58,
+            "stateEnteredEventDetails": {
+                "name": "param_resolve_parallel_branch_1",
+                "input": "{\"_full_params\":[1627917946.320738,1627917946.320738],\"_cache_params\":1627917946.320738,\"_data\":null,\"_use_cache\":false}",
+                "inputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:58.433000-04:00",
+            "type": "PassStateExited",
+            "id": 62,
+            "previousEventId": 61,
+            "stateExitedEventDetails": {
+                "name": "param_resolve_parallel_branch_1",
+                "output": "[1.627917946320738E9,1.627917946320738E9]",
+                "outputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:58.439000-04:00",
+            "type": "TaskSucceeded",
+            "id": 63,
+            "previousEventId": 52,
+            "taskSucceededEventDetails": {
+                "resourceType": "lambda",
+                "resource": "invoke",
+                "output": "{\"ExecutedVersion\":\"$LATEST\",\"Payload\":1.627917946320738E9,\"SdkHttpMetadata\":{\"AllHttpHeaders\":{\"X-Amz-Executed-Version\":[\"$LATEST\"],\"x-amzn-Remapped-Content-Length\":[\"0\"],\"Connection\":[\"keep-alive\"],\"x-amzn-RequestId\":[\"312f5f8d-8a0f-4df2-91bd-1ac5616afb69\"],\"Content-Length\":[\"17\"],\"Date\":[\"Mon, 02 Aug 2021 15:28:58 GMT\"],\"X-Amzn-Trace-Id\":[\"root=1-61080f39-5caf6ea619128b9e778b77b6;sampled=0\"],\"Content-Type\":[\"application/json\"]},\"HttpHeaders\":{\"Connection\":\"keep-alive\",\"Content-Length\":\"17\",\"Content-Type\":\"application/json\",\"Date\":\"Mon, 02 Aug 2021 15:28:58 GMT\",\"X-Amz-Executed-Version\":\"$LATEST\",\"x-amzn-Remapped-Content-Length\":\"0\",\"x-amzn-RequestId\":\"312f5f8d-8a0f-4df2-91bd-1ac5616afb69\",\"X-Amzn-Trace-Id\":\"root=1-61080f39-5caf6ea619128b9e778b77b6;sampled=0\"},\"HttpStatusCode\":200},\"SdkResponseMetadata\":{\"RequestId\":\"312f5f8d-8a0f-4df2-91bd-1ac5616afb69\"},\"StatusCode\":200}",
+                "outputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:58.439000-04:00",
+            "type": "TaskStateExited",
+            "id": 64,
+            "previousEventId": 63,
+            "stateExitedEventDetails": {
+                "name": "cache_push_cw_bd_3",
+                "output": "1627917946.320738",
+                "outputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:58.536000-04:00",
+            "type": "PassStateEntered",
+            "id": 65,
+            "previousEventId": 62,
+            "stateEnteredEventDetails": {
+                "name": "parallel_branch_1",
+                "input": "[1.627917946320738E9,1.627917946320738E9]",
+                "inputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:58.536000-04:00",
+            "type": "PassStateExited",
+            "id": 66,
+            "previousEventId": 65,
+            "stateExitedEventDetails": {
+                "name": "parallel_branch_1",
+                "output": "1627917946.320738",
+                "outputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:58.536000-04:00",
+            "type": "ParallelStateSucceeded",
+            "id": 67,
+            "previousEventId": 66
+        },
+        {
+            "timestamp": "2021-08-02T11:28:58.536000-04:00",
+            "type": "ParallelStateExited",
+            "id": 68,
+            "previousEventId": 66,
+            "stateExitedEventDetails": {
+                "name": "execute_parallel_branch_1",
+                "output": "[{\"_cache_params\":1.627917946320738E9},1627917946.320738]",
+                "outputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:58.543000-04:00",
+            "type": "TaskStateEntered",
+            "id": 69,
+            "previousEventId": 68,
+            "stateEnteredEventDetails": {
+                "name": "cache_push_cw_bd_2",
+                "input": "[{\"_cache_params\":1.627917946320738E9},1627917946.320738]",
+                "inputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:58.543000-04:00",
+            "type": "TaskScheduled",
+            "id": 70,
+            "previousEventId": 69,
+            "taskScheduledEventDetails": {
+                "resourceType": "lambda",
+                "resource": "invoke",
+                "region": "us-east-1",
+                "parameters": "{\"FunctionName\":\"cache_lambda\",\"Payload\":{\"_dsdt_only_args\":{\"s3_bucket_url\":\"s3://step-function-cache-bucket\",\"context\":\"simple_dev_pipeline\",\"force_rerun\":false,\"verbose\":true,\"state_machine_name\":\"\",\"bundle_name\":\"cw_bd_2\"},\"_full_params\":[{\"_cache_params\":1.627917946320738E9},1.627917946320738E9]}}"
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:58.550000-04:00",
+            "type": "TaskStarted",
+            "id": 71,
+            "previousEventId": 70,
+            "taskStartedEventDetails": {
+                "resourceType": "lambda",
+                "resource": "invoke"
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:59.190000-04:00",
+            "type": "TaskSucceeded",
+            "id": 72,
+            "previousEventId": 71,
+            "taskSucceededEventDetails": {
+                "resourceType": "lambda",
+                "resource": "invoke",
+                "output": "{\"ExecutedVersion\":\"$LATEST\",\"Payload\":1.627917946320738E9,\"SdkHttpMetadata\":{\"AllHttpHeaders\":{\"X-Amz-Executed-Version\":[\"$LATEST\"],\"x-amzn-Remapped-Content-Length\":[\"0\"],\"Connection\":[\"keep-alive\"],\"x-amzn-RequestId\":[\"55a46a7b-ed15-4076-91fa-a515444100c1\"],\"Content-Length\":[\"17\"],\"Date\":[\"Mon, 02 Aug 2021 15:28:59 GMT\"],\"X-Amzn-Trace-Id\":[\"root=1-61080f3a-53e2f26675ed73692d8701a1;sampled=0\"],\"Content-Type\":[\"application/json\"]},\"HttpHeaders\":{\"Connection\":\"keep-alive\",\"Content-Length\":\"17\",\"Content-Type\":\"application/json\",\"Date\":\"Mon, 02 Aug 2021 15:28:59 GMT\",\"X-Amz-Executed-Version\":\"$LATEST\",\"x-amzn-Remapped-Content-Length\":\"0\",\"x-amzn-RequestId\":\"55a46a7b-ed15-4076-91fa-a515444100c1\",\"X-Amzn-Trace-Id\":\"root=1-61080f3a-53e2f26675ed73692d8701a1;sampled=0\"},\"HttpStatusCode\":200},\"SdkResponseMetadata\":{\"RequestId\":\"55a46a7b-ed15-4076-91fa-a515444100c1\"},\"StatusCode\":200}",
+                "outputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:59.190000-04:00",
+            "type": "TaskStateExited",
+            "id": 73,
+            "previousEventId": 72,
+            "stateExitedEventDetails": {
+                "name": "cache_push_cw_bd_2",
+                "output": "1627917946.320738",
+                "outputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:59.190000-04:00",
+            "type": "ParallelStateSucceeded",
+            "id": 74,
+            "previousEventId": 73
+        },
+        {
+            "timestamp": "2021-08-02T11:28:59.190000-04:00",
+            "type": "ParallelStateExited",
+            "id": 75,
+            "previousEventId": 73,
+            "stateExitedEventDetails": {
+                "name": "parallel_1",
+                "output": "[1627917946.320738,1627917946.320738]",
+                "outputDetails": {
+                    "truncated": false
+                }
+            }
+        },
+        {
+            "timestamp": "2021-08-02T11:28:59.190000-04:00",
+            "type": "ExecutionSucceeded",
+            "id": 76,
+            "previousEventId": 75,
+            "executionSucceededEventDetails": {
+                "output": "[1627917946.320738,1627917946.320738]",
+                "outputDetails": {
+                    "truncated": false
+                }
+            }
+        }
+    ]
+}

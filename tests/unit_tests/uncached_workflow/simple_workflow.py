@@ -1,5 +1,6 @@
 from stepfunctions.steps import states
-from caching_util.caching_util import Caching
+from disdat_step_function.caching_wrapper import Caching, PipelineCaching
+from tests import config
 
 
 class SimpleWorkflow:
@@ -30,3 +31,7 @@ class SimpleWorkflow:
         exec = states.Chain([task_1, task_2])
 
         return states.Chain([start, exec])
+
+
+
+

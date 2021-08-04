@@ -1,5 +1,5 @@
 import pytest
-from caching_util.cache_lambda import Cache, PathParam as pp
+from disdat_step_function.cache_lambda import Cache, PathParam as pp
 from disdat import api
 from typing import Any, Union
 import json
@@ -8,7 +8,7 @@ from tests import config
 
 
 S3_URL = config.TEST_S3_BUCKET
-CONTEXT = 'test_cache_pull'
+CONTEXT = 'cache_pull_testing'
 
 api.context(CONTEXT)
 api.remote(CONTEXT, remote_context=CONTEXT, remote_url=S3_URL)

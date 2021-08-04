@@ -5,7 +5,7 @@ from stepfunctions.steps import states
 from stepfunctions.steps.fields import Field
 import os
 import shutil
-from caching_util.cache_lambda import PathParam as pp
+from disdat_step_function.cache_lambda import PathParam as pp
 import logging
 
 
@@ -15,6 +15,7 @@ class Caching:
                  caching_lambda_name: str,
                  s3_bucket_url: str,
                  context_name: str,
+                 state_machine_name: str = '',
                  force_rerun: bool = False,
                  verbose: bool = False):
         """
@@ -29,12 +30,14 @@ class Caching:
         self.s3_bucket = s3_bucket_url
         self.context_name = context_name
         self.force_rerun = force_rerun
+        self.state_machine_name = state_machine_name
         self.verbose = verbose
         # kwargs passed to the caching lambda, users don't need to worry about this
         self.disdat_args = {'s3_bucket_url': self.s3_bucket,
                             'context': self.context_name,
                             'force_rerun': self.force_rerun,
-                            'verbose': self.verbose}
+                            'verbose': self.verbose,
+                            'state_machine_name': self.state_machine_name}
         assert self.s3_bucket.startswith('s3://'), 's3 bucket url invalid format'
         assert isinstance(self.verbose, bool), 'verbose has the wrong type, bool expected'
         assert isinstance(self.force_rerun, bool), 'force_rerun has the wrong type, bool expected'
@@ -64,7 +67,7 @@ class Caching:
         # caching unnecessary params that are not consumed by user step
         user_inputs = user_step.fields.get(Field.InputPath.value, '$')
         # define caching pull state
-        cache_pull = steps.LambdaStep(state_id='cache_pull_{}'.format(task_name),
+        cache_pull = steps.LambdaStep(state_id='cache_pull_{}'.format(bundle_name),
                                       output_path='$.Payload',
                                       parameters={
                                           'FunctionName': self.caching_lambda,
@@ -77,7 +80,7 @@ class Caching:
         # define caching push state
         # note that the two states share the same lambda function!
         # as a matter of fact, this one lambda is called repeated by all cached states
-        cache_push = steps.LambdaStep(state_id='cache_push_{}'.format(task_name),
+        cache_push = steps.LambdaStep(state_id='cache_push_{}'.format(bundle_name),
                                       output_path='$.Payload',
                                       parameters={
                                           'FunctionName': self.caching_lambda,
@@ -113,7 +116,7 @@ class Caching:
 
 class PipelineCaching:
 
-    def __init__(self, definition: states.Chain, caching: Caching):
+    def __init__(self, definition: Union[states.Chain, states.State], caching: Caching):
         """
         Cache all tasks in a pre-existing state machine
         :param definition: states.Chain, the state machine that the user wants to cache

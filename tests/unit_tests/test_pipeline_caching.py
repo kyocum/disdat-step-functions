@@ -8,7 +8,7 @@ from tests.unit_tests.uncached_workflow.long_workflow import LongWorkflow
 from tests.unit_tests.uncached_workflow.map_workflow import MapWorkflow
 from tests.unit_tests.uncached_workflow.parallel_choice_map_workflow import ParallelChoiceMapWorkflow
 
-from caching_util.caching_util import Caching, PipelineCaching,ExtensiveGraphVisitor
+from disdat_step_function.caching_wrapper import Caching, PipelineCaching,ExtensiveGraphVisitor
 
 
 test_data = [

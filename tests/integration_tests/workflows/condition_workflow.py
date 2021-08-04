@@ -1,5 +1,5 @@
 from stepfunctions.steps import *
-from caching_util.caching_util import Caching
+from disdat_step_function.caching_wrapper import Caching
 from tests.integration_tests.utils import VersionChecker
 from tests import config
 from typing import Any
@@ -42,21 +42,19 @@ class ConditionWorkflow:
         inputs = {'choice': True}
         expected = inputs
         name = 'condition_workflow'
-        case = ['conditioned_workflow', cls.get_workflow(name, rerun=True), inputs, expected,
+        case = [name, cls.get_workflow(name, rerun=True), inputs, expected,
                 [name + '_branch1', name + '_branch2'], [1, 0]]
         cases.append(case)
 
         inputs = {'choice': False}
         expected = inputs
-        name = 'condition_workflow'
-        case = ['conditioned_workflow', cls.get_workflow(name, rerun=True), inputs, expected,
+        case = [name, cls.get_workflow(name, rerun=True), inputs, expected,
                 [name + '_branch1', name + '_branch2'], [0, 1]]
         cases.append(case)
 
         inputs = {'choice': False, 'timestamp': time.time()}
         expected = inputs
-        name = 'condition_workflow'
-        case = ['conditioned_workflow', cls.get_workflow(name, rerun=False), inputs, expected,
+        case = [name, cls.get_workflow(name, rerun=False), inputs, expected,
                 [name + '_branch1', name + '_branch2'], [0, 1]]
         cases.append(case)
 

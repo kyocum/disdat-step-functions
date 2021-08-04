@@ -130,3 +130,5 @@ dmypy.json
 *.zip
 /cache_lambda/
 /generated_lambda/
+/tests/unit_tests/workflow_logs/simple_workflow.txt
+/lambda/

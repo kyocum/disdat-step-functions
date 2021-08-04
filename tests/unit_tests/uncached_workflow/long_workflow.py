@@ -1,5 +1,5 @@
 from stepfunctions.steps import states
-from caching_util.caching_util import Caching
+from disdat_step_function.caching_wrapper import Caching
 
 
 class LongWorkflow:

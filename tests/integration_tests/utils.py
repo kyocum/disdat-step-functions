@@ -36,3 +36,19 @@ class VersionChecker:
         api.pull(self.context, bundle_name=bundle, localize=False)
         bundles = api.search(self.context, bundle)
         return [(b.uuid, b.creation_date) for b in bundles]
+
+
+class LineageChecker:
+    @staticmethod
+    def check_lineage(context: str, dependencies: dict):
+        api.context(context_name=context)
+        api.remote(local_context=context, remote_context=context, remote_url=config.S3_URL)
+        for child, parent in dependencies.items():
+            api.pull(context, child, localize=False)
+            api.pull(context, parent, localize=False)
+            child_bd = api.get(context, child)
+            if parent is not None:
+                parent_bd = api.get(context, parent)
+                assert child_bd.dependencies['_arg_0'][1] == parent_bd.uuid, 'dependency is wrong!'
+            else:
+                assert len(child_bd.dependencies) == 0, 'expect no dependency!'
