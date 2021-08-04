@@ -16,9 +16,9 @@ More specifically, this plugin does the following:
 ## Get Started 
 Install the package, the pip command will also download the core disdat package if you haven't done so already. 
 
-`pip install disdat-kfp`
+`pip install disdat-step-function`
 
-Get Started with the tutorial notebook! Check out how easy it is to version a KFP workflow in `simple_cached_workflow.ipynb`
+Get Started with the tutorial notebook! Check out how easy it is to version a AWS StepFunction state machine in `simple_cached_sm.ipynb`
 
 ## Documentation
 ### `caching_wrapper.Caching`
@@ -145,6 +145,8 @@ Once it has the parameters, a `proce_name` will be calculated using bundle name 
 will be used to pull data from the remote disdat bundle on S3 
 
 The output of `cache_pull` has the following format:
+
+**Output**
 ```angular2html
 {
     # the full param will be passed to user state
@@ -164,6 +166,8 @@ The output of `cache_pull` has the following format:
 ### `param_pass_{task_name}` 
 In AWS State Machine, any state can only take parameters from another state. In order for the input parmaters to reach `cache_push`, 
 we must create a bypass. The output of `param_pass` has the following format:
+
+**Output**
 ```angular2html
 {
   "_cache_params": input_data[field_selector]
@@ -172,6 +176,9 @@ we must create a bypass. The output of `param_pass` has the following format:
 ### `param_resolve_{task_name}` 
 Since the user state expects the input data to be the parameters `cache_pull` receives, we must unravel the output of `cache_pull` using 
 field selection `$._full_params`. Hence, `param_resolve` has the following output format:
+
+
+**Output**
 ```angular2html
 input_data 
 ```
@@ -180,3 +187,8 @@ input_data
 If it receives data from `cache_pull` (no execution), it will simply pass on the `_data` field to the following state
 
 If it receives data from the execution branchm it will use `_cache_param` to calculate proc_name and push data to S3
+
+**Output**
+```angular2html
+data output by user task
+```

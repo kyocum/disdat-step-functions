@@ -29,25 +29,22 @@ class DiffCacheParamWorkflow:
         inputs = {'useless': 'foo1', 'useful': 'bar'}
         expected = inputs['useful']
         name = 'diff_param_bd'
-        case = ['simple_workflow', cls.get_workflow(name, rerun=True), inputs,
+        case = [name, cls.get_workflow(name, rerun=True), inputs,
                 expected, [name], [1]]
         cases.append(case)
 
         # useless is not considered a part of the input param, task should be skipped
         inputs = {'useless': 'foo2', 'useful': 'bar'}
         expected = inputs['useful']
-        name = 'diff_param_bd'
-        case = ['simple_workflow', cls.get_workflow(name, rerun=False), inputs,
+        case = [name, cls.get_workflow(name, rerun=False), inputs,
                 expected, [name], [0]]
         cases.append(case)
 
         # usefule is not considered a part of the input param, task should be executed
         inputs = {'useless': 'foo2', 'useful':  time.time()}
         expected = inputs['useful']
-        name = 'diff_param_bd'
-        case = ['simple_workflow', cls.get_workflow(name, rerun=False), inputs,
+        case = [name, cls.get_workflow(name, rerun=False), inputs,
                 expected, [name], [1]]
         cases.append(case)
-
 
         return cases

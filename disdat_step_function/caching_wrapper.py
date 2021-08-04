@@ -1,4 +1,5 @@
 import pathlib
+import time
 from typing import Union
 from stepfunctions import steps, inputs
 from stepfunctions.steps import states
@@ -63,11 +64,12 @@ class Caching:
         # copy the dict parameters because it is shared by potentially many cache_step calls.
         disdat_args = self.disdat_args.copy()
         disdat_args['force_rerun'] = force_rerun
+        disdat_args['time'] = time.time()
         # set the caching pull input path to match user step's input path, we do this to avoid
         # caching unnecessary params that are not consumed by user step
         user_inputs = user_step.fields.get(Field.InputPath.value, '$')
         # define caching pull state
-        cache_pull = steps.LambdaStep(state_id='cache_pull_{}'.format(bundle_name),
+        cache_pull = steps.LambdaStep(state_id='cache_pull_{}'.format(task_name),
                                       output_path='$.Payload',
                                       parameters={
                                           'FunctionName': self.caching_lambda,
@@ -80,7 +82,7 @@ class Caching:
         # define caching push state
         # note that the two states share the same lambda function!
         # as a matter of fact, this one lambda is called repeated by all cached states
-        cache_push = steps.LambdaStep(state_id='cache_push_{}'.format(bundle_name),
+        cache_push = steps.LambdaStep(state_id='cache_push_{}'.format(task_name),
                                       output_path='$.Payload',
                                       parameters={
                                           'FunctionName': self.caching_lambda,
