@@ -192,3 +192,27 @@ If it receives data from the execution branchm it will use `_cache_param` to cal
 ```angular2html
 data output by user task
 ```
+
+## Lineage Capture 
+Data provenance is an important feature of data versioning. This is especially true for orchestration workflows such as AWS StepFunction. However,
+due to the design nature of SF, it is very hard for a state to figure out what its parent is. We leverage the execution logs and build a graph in which 
+each node is an execution event. Unfortunately the execution flow is hard to reconstruct from raw logs (especially true for Parallel and Map states). 
+Right now we support partial lineage, that is for every cached state, we guarantee to find one parent 
+(some states may have multile parents, such as the state following a parallel state with two branches)
+
+**Importance Tips**
+>If you need to enable lineage capture, please make sure your Lambda  
+can perform `list_state_machines`, `list_executions` and `get_execution_history` on StateMachines
+>
+> Lineage capture only supports default bundle names. This is because 
+> we can only recover bundle name from execution event name if bundle name = task name
+
+**Warning**
+>Lineage capture is still in alpha mode, use it at your own risk (captured dependencies are correct, but some will be missed).
+> By default this feature is disabled. To enable it, modify the `lambda_for_user.py` code:
+
+```angular2html
+parent = cache.get_lineage()
+# parent = None
+return cache.cache_push(event, parent)
+```
