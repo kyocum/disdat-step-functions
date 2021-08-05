@@ -1,0 +1,3 @@
+exclude simple_cached_sm.ipynb
+prune tests
+prune docs

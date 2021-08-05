@@ -18,20 +18,17 @@ os.environ['AWS_DEFAULT_REGION'] = config.REGION
 logging.basicConfig(level=logging.INFO)
 
 test_data = []
-# test_data += simple_pipeline.SimpleWorkflow.generate_cases()
-# test_data += diff_output_workflow.DiffOutWorkflow.generate_cases()
+test_data += simple_pipeline.SimpleWorkflow.generate_cases()
+test_data += diff_output_workflow.DiffOutWorkflow.generate_cases()
 test_data += condition_workflow.ConditionWorkflow.generate_cases()
-# test_data += parallel_states_workflow.ParallelWorkflow.generate_cases()
-# test_data += diff_cache_param_workflow.DiffCacheParamWorkflow.generate_cases()
-# test_data += long_workflow.LongWorkflow.generate_cases()
-# test_data += complex_workflow.ComplexWorkflow.generate_cases()
+test_data += parallel_states_workflow.ParallelWorkflow.generate_cases()
+test_data += diff_cache_param_workflow.DiffCacheParamWorkflow.generate_cases()
+test_data += long_workflow.LongWorkflow.generate_cases()
+test_data += complex_workflow.ComplexWorkflow.generate_cases()
 
 
 @pytest.mark.parametrize('workflow_name, definition, inputs, exp_output, bundle_names, gaps', test_data)
 def test_workflow(workflow_name, definition, inputs, exp_output, bundle_names, gaps):
-
-# if __name__ == '__main__':
-#     for workflow_name, definition, inputs, exp_output, bundle_names, gaps in test_data:
     target_flow = [flow for flow in Workflow.list_workflows() if flow['name'] == workflow_name]
     if len(target_flow) > 0:
         workflow = Workflow.attach(target_flow[0]['stateMachineArn'])

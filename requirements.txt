@@ -2,3 +2,5 @@ boto3
 disdat
 stepfunctions
 pytest
+twine
+build
