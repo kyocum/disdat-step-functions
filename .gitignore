@@ -133,3 +133,4 @@ dmypy.json
 /tests/unit_tests/workflow_logs/simple_workflow.txt
 /lambda/
 /disdat_step_function/version.py
+/test_package_dir/
