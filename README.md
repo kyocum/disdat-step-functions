@@ -139,7 +139,7 @@ With some high-level understanding of how Disdat-step-function works, let's dive
 <img src="docs/injection.png" width="512"> 
 
 
-### `cache_pull_{bundle_name}`
+### `cache_pull_{task_name}`
 It takes the input json file and extract the parameters using the `input_path` field selector specified by the user's task. 
 Once it has the parameters, a `proce_name` will be calculated using bundle name and the hash of the parameters. This key value 
 will be used to pull data from the remote disdat bundle on S3 
