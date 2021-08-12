@@ -1,7 +1,7 @@
 <img src="docs/logo.png" width="256">
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) 
-[![PyPI version](https://badge.fury.io/py/disdat.svg)](https://badge.fury.io/py/disdat) 
+[![PyPI version](https://badge.fury.io/py/disdat-step-function.svg)](https://badge.fury.io/py/disdat-step-function)
 
 ## disdat-step-functions
 Disdat is a Python (3.6 +) package for data versioning and pipeline authoring that allows data scientists to create
