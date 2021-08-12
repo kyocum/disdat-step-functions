@@ -61,7 +61,7 @@ class Caching:
         assert isinstance(self.verbose, bool), 'verbose has the wrong type, bool expected'
         assert isinstance(self.force_rerun, bool), 'force_rerun has the wrong type, bool expected'
 
-    def cache_step(self, user_step: steps.states, bundle_name: str = None, force_rerun: bool = False) -> steps.Chain:
+    def cache_step(self, user_step: steps.states, bundle_name: str = None, force_rerun: bool = None) -> steps.Chain:
         """
         enable caching for the input user step by wrapping the user step in a chain of generated caching states
         for instance:
@@ -81,7 +81,9 @@ class Caching:
         self.disdat_args['bundle_name'] = bundle_name
         # copy the dict parameters because it is shared by potentially many cache_step calls.
         disdat_args = self.disdat_args.copy()
-        disdat_args['force_rerun'] = force_rerun
+        # override the force_rerun logic if specified
+        if force_rerun is not None:
+            disdat_args['force_rerun'] = force_rerun
         disdat_args['time'] = time.time()
         # set the caching pull input path to match user step's input path, we do this to avoid
         # caching unnecessary params that are not consumed by user step
